@@ -1,0 +1,112 @@
+.navegador{
+    padding: 0;
+    position: sticky;
+    top: 0;
+    background-color: map-get($map: $paleta, $key: 'secundario');
+    z-index: 100;
+}
+
+.btn-menu{
+    background-color: transparent;
+    border: none;
+    padding-right: $pMedium;
+    margin-right: $mXs;
+    h3{
+        color: map-get($map: $paleta, $key: 'acento');
+        margin-right: $mXs;
+        margin-top: $mXs;
+    }  
+}
+
+.lista-nav{
+    list-style: none;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-right: auto;
+    margin-bottom: $mXs;
+    li {
+        a{
+            @include texto ($textMedium, 3rem);
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: map-get($map: $paleta, $key: 'acento');
+            font-weight: $fontRegular;
+        }
+    }
+}
+
+.barra-desplegable{
+    margin: 0 $mSmall $mXs $mSmall;
+    background-color: map-get($map: $paleta, $key: 'acento');
+    border-radius: $borderRadiusLg;
+    width: 100%;
+    display: flex;
+    input{
+        @include texto($textSmall, 2.5rem);
+        font-family: $searchFont;
+        border: none;
+        background-color: transparent;
+        flex: 1;
+        outline: none;
+        margin-left: $mXs;
+        &::placeholder{
+            font-style: italic;
+        }
+    }
+    button{
+        width: 4rem;
+        height: 4rem;
+        border-radius: $borderRadiusLg;
+        border: none;
+        background-color: map-get($map: $paleta, $key: 'primario');
+        &:active{
+            background-color: map-get($map: $paleta, $key: 'secundarioHover');
+        }
+    }
+
+}
+
+// Contenedor inferior para móviles 
+.div-inferior{
+    @include flex (row, start, center);
+    z-index: 99;
+    width: 100%;
+    height: 60px;
+    background-color: map-get($map: $paleta, $key: 'secundario');
+    position: fixed;
+    bottom: 0;
+    button{
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .barraVertical{
+        height: 75%;
+        div{
+            background-color: map-get($map: $paleta, $key: 'acento');
+            height: 100%;
+        }
+    }
+}
+
+@media (width >= 992px){
+    .lista-nav{
+        margin: 0;
+        li{
+            @include flex (row, center, center);
+            width: 100%;
+            height: 50px;
+            &:hover{
+                background-color: map-get($map: $paleta, $key: 'secundarioHover')
+            }
+            a{
+                @include flex (row, center, center);
+                width: 100%;
+            }
+        }
+        div{
+            background-color: map-get($map: $paleta, $key: 'acento');
+        }
+    }
+}

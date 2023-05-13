@@ -1,0 +1,78 @@
+//colores
+$paleta: (
+    'primario': #1b3039,
+    'primarioHover': #2b4d5b,
+    'secundario': #eb5e28,
+    'secundarioHover': #f67440,
+    'terceario': #bebeaf,
+    'acento': #fffcf4,
+    'cajas': #91919180,
+);
+
+$sombra: 0 4px 8px 0 #1e1e1e33, 0 6px 20px 0 #1e1e1e33;
+
+//fonts
+$mainFont: 'Mukta', sans-serif;
+$titleFont: 'Oswald', sans-serif;
+$searchFont: 'Poppins', sans-serif;
+$errorFont: 'Charm', cursive;
+
+//sizing
+$h1Size: 4rem;
+$h2Size: 3rem;
+$h3Size: 2.4rem;
+$h4Size: 2rem;
+$h5Size: 1.6rem;
+
+$textSmall: 1.4rem;
+$textMedium: 1.8rem;
+$textLarge: 2rem;
+
+//font weight
+$fontLight: 100;
+$fontRegular: 400;
+$fontBold: 700;
+
+//padding
+$pLateralMov: 5%;
+$pLateralPc: 8%;
+
+$pXXs: 5px;
+$pXs: 10px;
+$pSmall: 15px;
+$pMedium: 20px;
+$pLarge: 40px;
+$pXl: 80px;
+
+// margins
+$mXxs: 5px;
+$mXs: 10px;
+$mSmall: 15px;
+$mMedium: 20px;
+$mLarge: 40px;
+
+//border radius
+$borderRadiusSm: 5px;
+$borderRadiusMd: 8px;
+$borderRadiusLg: 20px;
+
+//mixins
+@mixin titulo ($size, $margin, $align){
+    font-family: $titleFont;
+    font-weight: $fontRegular;
+    font-size: $size;
+    margin: $margin;
+    text-align: $align;
+}
+
+@mixin texto ($size, $height){
+    font-size: $size;
+    line-height: $height;
+}
+
+@mixin flex ($direction, $justify, $align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}

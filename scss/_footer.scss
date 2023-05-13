@@ -1,0 +1,46 @@
+.pie{
+    @include flex (column, center, center);
+    background-color: map-get($map: $paleta, $key: 'terceario');
+    width: 100%;
+    padding-top: $pMedium;
+    padding-bottom: $pXl;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.redesFooter{
+    @include flex (row, space-between, center);
+    width: 150px;
+    margin: $pXXs 0;
+}
+
+.textoFooter{
+    @include flex (row, center, center);
+    p{
+        margin: 0;
+    }
+}
+
+.textoTel{
+    margin-top: $mMedium;
+    margin-bottom: $mSmall;
+}
+
+
+@media (width >= 992px){
+    .pie{
+        @include flex (row, space-between, center);
+        padding: $pMedium $pLateralPc;
+        margin-top: $pLarge;
+    }
+    
+    .redesFooter {
+        a{
+            transition: all .2s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}

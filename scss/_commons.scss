@@ -1,0 +1,583 @@
+*{
+    box-sizing: border-box;
+    font-family: $mainFont;
+}
+
+html{
+    font-size: 62.5%;
+    height: 100%
+}
+
+h1{
+    @include titulo ($h1Size, $mLarge 0, center);
+}
+
+h2{
+    @include titulo ($h2Size, $mLarge 0 $mMedium 0, center);
+}
+
+h3{
+    @include titulo ($h3Size, 0, center);
+}
+
+h4{
+    @include titulo ($h4Size, 0, start);
+}
+
+h5{
+    @include titulo ($h5Size, 0, start);
+}
+
+p{
+    @include texto ($textMedium, 2.7rem);
+}
+
+body{
+    background-attachment: fixed;
+    background-image: url(../img/fondos/light-veneer.webp);
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+}
+
+main{
+    padding-left: $pLateralMov;
+    padding-right: $pLateralMov;
+    padding-bottom: 260px;
+}
+
+.botones{
+    background-color: map-get($map: $paleta, $key: 'secundario');
+    color: rgb(255, 252, 242);
+    text-decoration: none;
+    cursor: pointer;
+    height: 40px;
+}
+
+.borde-negro{
+    border: black solid;
+    border-width: 1px;
+}
+
+//Nosotros
+.quienes-somos{
+    @include flex (column, start, center);
+    p{
+        text-align: justify;
+        text-justify: inter-word;
+        width: 100%;
+    }
+    div{
+        margin-top: $mMedium;
+        width: 90%;
+        background-color: map-get($map: $paleta, $key: 'acento');
+        box-shadow: $sombra;
+        padding: $pMedium;
+        img{
+            background-color: map-get($map: $paleta, $key: 'cajas');
+            width: 100%;
+            border: solid map-get($map: $paleta, $key: 'primario');
+        }        
+    }
+
+}
+
+.mapa{
+    width: 100%;
+    box-shadow: $sombra;
+}
+
+// Tienda
+.filtro-moviles{
+    background-color: map-get($map: $paleta, $key: 'terceario');
+    position: sticky;
+    top: 41px;
+    margin-bottom: 30px;
+    box-shadow: $sombra;
+    div{
+        h4{
+            padding-left: 20px;
+        }
+        ul{
+            padding-left: 30px;
+            padding-bottom: 10px;
+            li {
+                label{
+                    @include texto ($textSmall, 2.5rem);
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.filtro-box{
+    grid-area: filtro;
+}
+
+.filtro{
+    background-color:map-get($map: $paleta, $key: 'cajas');
+    width: 240px;
+    height: auto;
+    padding: $pMedium;
+    line-height: 2.2rem;
+    color: black;
+    box-shadow: $sombra;
+    border-radius: $borderRadiusMd;
+    position: sticky;
+    top: 80px;
+    left: 0;
+    h3{
+        margin-bottom: $mXs;
+    }
+    div{
+        h4{
+            margin: $mMedium 0 $mXs 0;
+        }
+    }
+    ul{
+        list-style: none;
+        li{
+            display: flex;
+            a{
+                @include texto ($textSmall, 2rem);
+                text-decoration: none;
+                color: map-get($map: $paleta, $key: 'primario');
+            }
+            form{
+                @include flex (row, start, center);
+                input{
+                    margin-left: 5px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.prod1{
+    grid-area: prod1;
+}
+.prod2{
+    grid-area: prod2;
+}
+.prod3{
+    grid-area: prod3;
+}
+.prod4{
+    grid-area: prod4;
+}
+.prod5{
+    grid-area: prod5;
+}
+.prod6{
+    grid-area: prod6;
+}
+.prod7{
+    grid-area: prod7;
+}
+.prod8{
+    grid-area: prod8;
+}
+.prod9{
+    grid-area: prod9;
+}
+.prod10{
+    grid-area: prod10;
+}
+.prod11{
+    grid-area: prod11;
+}
+.prod12{
+    grid-area: prod12;
+}
+
+.ver-mas{
+    @include flex (row, center, center);
+    grid-area: ver-mas;
+    a{
+        @include texto ($textMedium, 2.5rem);
+        font-weight: $fontBold;
+        text-decoration: none;
+        color: map-get($map: $paleta, $key: 'primario');;
+    }
+}
+
+// Contacto
+.contacto{
+    @include flex (column, start, center)
+}
+
+.escribenos{
+    display: grid;
+    width: 100%;
+    grid-template-areas: 
+    'form'
+    'info';
+}
+
+.formulario{
+    padding: $pXs;
+    border-radius: $borderRadiusMd;
+    background-color: map-get($map: $paleta, $key: 'cajas');
+    box-shadow: $sombra;
+    grid-area: form;
+    form{
+        @include texto ($textMedium, 2.7rem);
+        text-align: center;
+        label{
+            font-weight: $fontBold;
+        }
+        div{
+            div{
+                @include flex (row, end, center);
+                button{
+                    background-color: map-get($map: $paleta, $key: 'primario');
+                    border-radius: $borderRadiusSm;
+                    padding: $pXXs $pXs;
+                    border: none;
+                    color: map-get($map: $paleta, $key: 'acento');
+                    cursor: pointer;
+                    position: relative;
+                    right: 0;
+                }
+                a{
+                    text-decoration: none;
+                    color: map-get($map: $paleta, $key: 'acento');
+                }
+            }
+        }
+    }
+}
+
+.info-contacto-box{
+    grid-template-areas: info;
+    .info-contacto{
+        padding: $pXs;
+        margin-top: $pMedium;
+        text-align: center;
+        .email-contacto{
+            line-height: 3.2rem;
+            label{
+                @include texto ($textSmall, 2rem);
+                font-weight: $fontBold;
+            }
+        }
+        .redes-contacto{
+            margin-top: $mMedium;
+            a{
+                @include flex (row, center, center);
+                text-decoration: none;
+                margin: $mXs 0;
+                p{
+                    margin-left: $mXs;
+                    margin-top: $mXs;
+                }
+            } 
+        }
+        .direccion{
+            margin-top: $mMedium;
+            p{
+                line-height: 3rem;
+            }
+        }
+    }
+}
+
+// Como pagar
+.logos-pagos-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas:
+    'mastercard'
+    'visa'
+    'm-pago'
+    'a-express'
+    'bch';
+    .logos-pagos-box{
+        @include flex (row, center, center);
+        div{
+            @include flex (row, center, center);
+            background-color: map-get($map: $paleta, $key: 'cajas');
+            margin-bottom: 30px;
+            width: 200px;
+            box-shadow: $sombra;
+            img{
+                padding: $pXs;
+                width: auto;
+                height: 140px;
+            }
+        } 
+    }
+}
+
+#mastercard{
+    grid-area: mastercard;
+}
+
+#visa{
+    grid-area: visa;
+}
+
+#mercado-pago{
+    grid-area: m-pago;
+}
+
+#american-express{
+    grid-area: a-express;
+}
+
+#bitcoin-cash{
+    grid-area: bch;
+}
+
+.lista-pagos{
+    @include flex (row, center, start);
+    width: 100%;
+    ul{
+        list-style-position: inside;
+        width: 75%;
+        margin: 0;
+        margin-top: $mXs;
+        padding: 0;
+        li{
+            @include texto ($textSmall, 2rem);
+        }
+    }
+}
+
+// Error 404
+.error404{
+    @include flex (column, center, center);
+    div{
+        width: 80%;
+        @include flex (column, center, start);
+        img{
+            width: 100%;
+        }
+        p{
+            @include texto (3rem, 3.5rem);
+            width: 100%;
+            font-family: $errorFont;
+            text-align: center;
+            margin-bottom: $mLarge;
+        }
+    }
+    a{
+        @include texto ($textLarge, 2.5rem);
+        font-weight: $fontBold;
+        text-align: center;
+        text-decoration: none;
+        color: map-get($map: $paleta, $key: 'primario');
+    }
+}
+
+@media (width >=480px){
+    // Como pagar
+    .lista-pagos{
+        ul{
+            width: auto;
+        }
+    }
+}
+
+@media (width >= 576px){
+    //Contacto
+    .escribenos{
+        width: 536px;
+    }
+
+    // Como pagar
+    .logos-pagos-grid{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+        'mastercard visa'
+        'm-pago a-express'
+        'bch bch';
+        .logos-pagos-box{
+            margin-bottom: $mXs;
+        }
+    }
+    
+}
+
+@media (width >= 768px){
+    //Nosotros
+    .quienes-somos{
+        div{
+            width: 665px;        
+        }
+    }
+
+    .mapa{
+        height: 500px;
+        width: 665px;
+    }
+
+    // Como pagar
+    .logos-pagos-grid{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        'mastercard mastercard visa visa m-pago m-pago'
+        'blank a-express a-express bch bch blank2';
+    }
+
+    #blank{
+        grid-area: blank;
+    }
+
+    #blank2{
+        grid-area: blank2;
+    }
+
+    .lista-pagos {
+        ul{
+            li{
+                @include texto ($textMedium, 3rem);
+            }
+        }
+    }
+
+    .error404{
+        div{
+            width: 50%;
+        }
+    }
+}
+
+@media (width >= 992px){
+    main{
+        padding-left: $pLateralPc;
+        padding-right: $pLateralPc;
+        padding-bottom: 120px;
+    }
+
+    h3{
+        text-align: start;
+    }
+
+    .botones{
+        &:hover{
+            background-color: map-get($map: $paleta, $key: 'secundarioHover');
+            transition-duration: .3s;
+            border-color: rgb(33, 33, 33);
+        }
+    }
+
+    //Nosotros
+    .quienes-somos{
+        @include flex (row, start, start);
+        width: 100%;
+        p{
+            text-justify: initial;
+            width: 50%;
+            flex: 1;
+        }
+        div{
+            margin-top: 0;
+            margin-left: 5%;
+            width: 50%;
+            img{
+                width: 100%;
+            }            
+        }
+
+    }
+    .map{
+        width: 75%;
+    }
+
+    //Contacto
+    .escribenos{
+        display: grid;
+        margin: 0 $mMedium;
+        width: 90%;
+        grid-template-areas: 'form info';
+        .formulario{
+            width: 90%;
+            justify-self: end;
+            align-self: start;
+            button{
+                &:hover{
+                    background-color:map-get($map: $paleta, $key: 'primarioHover');
+                }
+                a{
+                   text-decoration: none;
+                   color: map-get($map: $paleta, $key: 'acento'); 
+                }
+            }
+        }
+        .info-contacto-box{
+            @include flex (row, center, start);
+            .info-contacto{
+                margin-top: 0px;
+                padding: 0;
+                text-align: start;
+                .redes-contacto{ 
+                    div{
+                        a{
+                            justify-content: start;
+                        }
+                    }
+        
+                }
+            }
+        }
+    }
+
+    //Error 404
+    .error404{
+        div{
+            @include flex (row, center,center);
+            width: 80%;
+            img{
+                padding: $pMedium;
+                width: 40%;
+            }
+            p{
+                width: 100%;
+                padding: $pMedium;
+                margin-bottom: 0;
+            }
+        }
+        a{
+            margin-top: $mLarge;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media (width >= 1200px){
+    //Nosotros
+    .quienes-somos{
+        div{
+            width: 500px;           
+        }
+
+    }
+}
+
+@media (width >= 1300px){
+    // Como pagar
+    .logos-pagos-grid{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        'mastercard visa m-pago a-express bch';
+    }
+    #american-express{
+        justify-self: center;
+        margin-right: 0;
+    }
+    #bitcoin-cash{
+        justify-self: center;
+        margin-left: 0;
+    }
+}

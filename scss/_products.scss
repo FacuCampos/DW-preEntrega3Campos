@@ -1,0 +1,132 @@
+// Contenedor de productos 
+.producto{
+    @include flex (column, start, center);
+    width: 240px;
+    background-color: map-get($map: $paleta, $key: 'cajas');
+    box-shadow: $sombra;
+    padding: $pMedium;
+    border-radius: $borderRadiusMd;
+    text-align: center;
+    img{
+        width: 200px;
+        border-radius: $borderRadiusMd;
+    }
+    .info-producto{
+        @include flex(column, space-between, center);
+        flex: 1;
+        figcaption{
+            @include texto ($textSmall, 3rem);
+            font-weight: $fontBold;
+        }
+        p{
+            width: 200px;
+            margin: $mXs 0px;
+        }
+        button{
+            @include texto ($textSmall, 2rem);
+            border-radius: $borderRadiusSm;
+            padding: calc($pSmall/2) $pSmall;
+            border: none;
+            background-color: map-get($map: $paleta, $key: 'primario');
+            color: map-get($map: $paleta, $key: 'acento');
+            cursor: pointer;
+            &:active{
+                background-color: map-get($map: $paleta, $key: 'primarioHover');
+                transform: scale(0.97);
+            }
+        }
+    }
+}
+
+
+// Distribuciones 
+.destacados{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap: 20px 20px;
+}
+
+.tienda{
+    display: grid;
+    grid-gap: 20px 20px;
+    grid-template-areas:
+    'prod1'
+    'prod2'
+    'prod3'
+    'prod4'
+    'prod5'
+    'prod6'
+    'prod7'
+    'prod8'
+    'prod9'
+    'prod10'
+    'prod11'
+    'prod12'
+    'ver-mas';
+}
+
+// Media queries
+@media (width >= 768px){
+    // Distribuciones
+    .destacados{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .tienda{
+        grid-template-areas:
+        'prod1 prod2'
+        'prod3 prod4'
+        'prod5 prod6'
+        'prod7 prod8'
+        'prod9 prod10'
+        'prod11 prod12'
+        'ver-mas ver-mas';
+    }
+}
+
+@media (width >= 992px){
+    // Caja productos
+    .producto{
+        button{
+            &:hover{
+                background-color: map-get($map: $paleta, $key: 'primarioHover');
+            }
+        }
+    }
+    
+    // Distribuciones
+    .destacados{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
+    .tienda{
+        grid-template-areas:
+        'filtro prod1 prod2'
+        'filtro prod3 prod4'
+        'filtro prod5 prod6'
+        'filtro prod7 prod8'
+        'filtro prod9 prod10'
+        'filtro prod11 prod12'
+        'filtro ver-mas ver-mas';
+    }
+}
+
+@media (width >= 1200px){
+    // Distribucion
+    .destacados{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .tienda{
+        grid-template-areas:
+        'filtro prod1 prod2 prod3'
+        'filtro prod4 prod5 prod6'
+        'filtro prod7 prod8 prod9'
+        'filtro prod10 prod11 prod12'
+        'filtro ver-mas ver-mas ver-mas';
+    }
+}
